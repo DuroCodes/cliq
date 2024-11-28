@@ -30,4 +30,4 @@ cd cliq
 cargo build --release
 ```
 
-Then you'll find the binary in `./target/release/cliq`. If you want to run it without the termial (for macOS), you can make an app bundle a
+Then you'll find the binary in `./target/release/cliq`. If you want to run it without the termial (for macOS), you can make an app bundle, you can use platypus or something similar, but you can do that manually.
