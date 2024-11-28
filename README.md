@@ -8,8 +8,6 @@ Cliq is a simple cross-platform Rust autoclicker with global hotkey and always o
 
 Cliq is inherently feature-limited, and is not intended to be a "full-featured" autoclicker—it's designed to be lean. Unless someone requests a feature, then I might add it.
 
----a
-
 Thanks to [egui](https://github.com/emilk/egui) for the GUI, it looks good on all platforms and respects the system theme.
 
 ## Screenshots
