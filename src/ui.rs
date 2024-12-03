@@ -35,18 +35,16 @@ fn render_status_panel(app: &mut CliqApp, ctx: &egui::Context) {
 
             ui.separator();
 
-            if ui
-                .checkbox(&mut app.is_always_on_top, "Always on Top")
-                .changed()
-            {
-                ctx.send_viewport_cmd(egui::ViewportCommand::WindowLevel(
-                    if app.is_always_on_top {
-                        egui::WindowLevel::AlwaysOnTop
-                    } else {
-                        egui::WindowLevel::Normal
-                    },
-                ));
+            if ui.checkbox(&mut app.is_sticky, "Sticky").changed() {
+                ctx.send_viewport_cmd(egui::ViewportCommand::WindowLevel(match app.is_sticky {
+                    true => egui::WindowLevel::AlwaysOnTop,
+                    false => egui::WindowLevel::Normal,
+                }));
             }
+
+            ui.separator();
+
+            ui.checkbox(&mut app.is_right_click, "Right").changed();
         });
     });
 }

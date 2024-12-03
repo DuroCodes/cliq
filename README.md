@@ -4,7 +4,7 @@
   <img src="./assets/logo.png" width="400" />
 </div>
 
-Cliq is a simple cross-platform Rust autoclicker with global hotkey and always on top support. I couldn't find any good autoclickers for Mac (without unnecessary features), so I decided to make my own with the features I needed
+Cliq is a simple cross-platform Rust autoclicker with global hotkey, right-click, and always on top support. I couldn't find any good autoclickers for Mac (without unnecessary features), so I decided to make my own with the features I needed
 
 Cliq is inherently feature-limited, and is not intended to be a "full-featured" autoclicker—it's designed to be lean. Unless someone requests a feature, then I might add it.
 

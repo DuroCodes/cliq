@@ -15,13 +15,12 @@ pub struct CliqApp {
     pub is_enabled: bool,
     pub last_click: Instant,
     pub is_setting_hotkey: bool,
-    pub is_always_on_top: bool,
+    pub is_sticky: bool,
+    pub is_right_click: bool,
 }
 
 impl Default for CliqApp {
     fn default() -> Self {
-        let is_always_on_top = true;
-
         Self {
             hotkey: HotKey::new(None, Code::F6),
             manager: GlobalHotKeyManager::new().unwrap(),
@@ -31,7 +30,8 @@ impl Default for CliqApp {
             is_enabled: false,
             last_click: Instant::now(),
             is_setting_hotkey: false,
-            is_always_on_top,
+            is_sticky: true,
+            is_right_click: false,
         }
     }
 }
@@ -49,9 +49,12 @@ impl CliqApp {
         if self.is_enabled {
             let now = Instant::now();
             if now.duration_since(self.last_click).as_millis() >= self.delay_ms as u128 {
-                self.enigo
-                    .button(Button::Left, enigo::Direction::Click)
-                    .unwrap();
+                let button = match self.is_right_click {
+                    true => Button::Right,
+                    false => Button::Left,
+                };
+
+                self.enigo.button(button, enigo::Direction::Click).unwrap();
                 self.last_click = now;
             }
         }
