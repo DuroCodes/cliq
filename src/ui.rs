@@ -132,7 +132,7 @@ fn render_hotkey_modal(app: &mut CliqApp, ctx: &egui::Context) {
                     if let Some(code) = egui_key_to_code(key) {
                         let new_hotkey = HotKey::new(mods, code);
                         if let Ok(()) = app.manager.register(new_hotkey) {
-                            app.manager.unregister(app.hotkey).unwrap();
+                            let _ = app.manager.unregister(app.hotkey);
                             app.hotkey = new_hotkey;
                             app.is_setting_hotkey = false;
                         }
