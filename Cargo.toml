@@ -4,6 +4,6 @@ name = "cliq"
 version = "0.1.0"
 
 [dependencies]
-eframe = "0.29.1"
+eframe = "0.32.3"
 enigo = "0.3.0"
 global-hotkey = "0.6.3"
